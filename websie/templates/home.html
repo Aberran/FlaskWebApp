@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<h1 align='center'>Notes</h1>
+<h1 align='center'>f'Ahoj, tu si mozes pisat poznamky'</h1>
 <ul class='list-group list-group-flush' id='notes'>
     {% for note in user.notes %}
     <li class='list-group-item'>
@@ -16,7 +16,7 @@
     <textarea name='note' id='note' class='from-control'></textarea>
     <br/>
     <div align='center'>
-        <button type='submit' class='btn btn-primary'>Add Note</button>
+        <button type='submit' class='btn btn-primary'>Pridat poznamku</button>
     <div>
 </from>
 {% endblock %}
