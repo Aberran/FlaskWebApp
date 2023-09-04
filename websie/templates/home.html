@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-<h1 align='center'>Hello, here you can create your personal notes</h1>
+
+<br/>
+<h1 align='center'>Hello, here you can create your personal notes.</h1>
+<br/>
 <ul class='list-group list-group-flush' id='notes'>
     {% for note in user.notes %}
     <li class='list-group-item'>
@@ -13,10 +16,12 @@
     {% endfor %}
 </ul>
 <form method='POST'>
-    <textarea name='note' id='note' class='from-control'></textarea>
+    <div class="form-outline mb-4">
+        <textarea name='note' id='note' class='form-control'></textarea>
+    </div>
     <br/>
     <div align='center'>
-        <button type='submit' class='btn btn-primary'>Pridat poznamku</button>
+        <button type='submit' class='btn btn-primary'>Add note</button>
     <div>
 </from>
 {% endblock %}
