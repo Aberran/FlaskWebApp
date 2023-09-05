@@ -22,7 +22,7 @@ def home():
             flash('Note added!', category='success')
             return redirect(url_for('views.home'))
             
-    return render_template('home.html', user=current_user)
+    return render_template('home.html', user=current_user, user_name=current_user.first_name)
 
 @views.route('/delete-note', methods=['POST'])
 def delete_note():

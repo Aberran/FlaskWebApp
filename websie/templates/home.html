@@ -3,7 +3,7 @@
 {% block content %}
 
 <br/>
-<h1 align='center'>Hello, here you can create your personal notes.</h1>
+<h1 align='center'>Hello {{ user_name }}, here you can create your personal notes.</h1>
 <br/>
 <ul class='list-group list-group-flush' id='notes'>
     {% for note in user.notes %}
