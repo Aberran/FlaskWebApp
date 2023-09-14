@@ -2,28 +2,35 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-<br/>
-<h1 align='center'>Hello {{ user_name }}, here you can create your personal notes.</h1>
-<br/>
-<ul class='list-group list-group-flush' id='notes'>
-    {% for note in user.notes %}
-    <li class='list-group-item'>
-        {{ note.data }}
-        <button type='button' class='close' onClick='deleteNote({{ note.id }})'>
-            <span aria-hidden='true'>&times;</span>
-        </button>
-    </li>
-    {% endfor %}
-</ul>
-<form method='POST'>
-    <div class="form-outline mb-4">
-        <textarea name='note' id='note' class='form-control'></textarea>
-    </div>
+<div align='center'>
+    <br/><br/><br/>
+    <h1>Hello {{ user_name }}, here you can create your personal notes.</h1>
     <br/>
-    <div align='center'>
-        <button type='submit' class='btn btn-primary'>Add note</button>
-    <div>
-</from>
+    <p>
+        “One of the critical skills in creative work is note-taking.” — <b>Lauri Jarvilento</b>
+    </p>
+    <br/>
+</div>
+    <ul class='list-group list-group-flush' id='notes'>
+        {% for note in user.notes %}
+        <li class='list-group-item'>
+            {{ note.data }}
+            <button type='button' class='close' onClick='deleteNote({{ note.id }})'>
+                <span aria-hidden='true'>&times;</span>
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+    <form method='POST'>
+        <div class="form-outline mb-4">
+            <textarea name='note' id='note' class='form-control'></textarea>
+        </div>
+        <br/>
+        <div align='center'>
+            <button type='submit' class='btn btn-dark'>Add note</button>
+        <div>
+    </from>
+
 {% endblock %}
 
 

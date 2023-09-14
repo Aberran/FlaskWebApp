@@ -1,46 +1,54 @@
 {% extends 'base.html' %}
 {% block title %}Sign Up{% endblock %}
 {% block content %}
-    <form method='POST' align='center'>
-        <br/>
-            <h3>Sign Up</h3>
-        <br/>
-            <div class='mx-auto col-10 col-md-8 col-lg-6'>
-                <input 
-                    type='email' 
-                    class='form-control' 
-                    id='email' 
-                    name='email' 
-                    placeholder='Enter email'/>
-            </div>
-        <br/>
-            <div class='mx-auto col-10 col-md-8 col-lg-6'>
-                <input 
-                    type='text' 
-                    class='form-control' 
-                    id='firstName' 
-                    name='firstName' 
-                    placeholder='Enter first name'/>
-            </div>
-        <br/>
-            <div class='mx-auto col-10 col-md-8 col-lg-6'>
-                <input 
-                    type='password' 
-                    class='form-control' 
-                    id='password1' 
-                    name='password1' 
-                    placeholder='Enter password'/>
-            </div>
-        <br/>
-            <div class='mx-auto col-10 col-md-8 col-lg-6'>
-                <input 
-                    type='password' 
-                    class='form-control' 
-                    id='password2' 
-                    name='password2' 
-                    placeholder='Confirm password'/>
-            </div>
-        <br/>
-            <button type='submit' class='btn btn-primary'>Submit</button>
-    </form>
+
+<form method='POST' align='center' class='sign-form'>
+    <br/><br/><br/>
+    <h1>Sign Up</h1>
+    <br/>
+    <h3>Here you can create your own account !</h3>
+    <br/>
+        <div class='mx-auto col-10 col-md-8 col-lg-6'>
+            <input 
+                type='email' 
+                class='form-control' 
+                id='email' 
+                name='email' 
+                placeholder='Enter email adress'/>
+        </div>
+    <br/>
+        <div class='mx-auto col-10 col-md-8 col-lg-6'>
+            <input 
+                type='text' 
+                class='form-control' 
+                id='firstName' 
+                name='firstName' 
+                placeholder='Enter first name'/>
+        </div>
+    <br/>
+        <div class='mx-auto col-10 col-md-8 col-lg-6'>
+            <input 
+                type='password' 
+                class='form-control' 
+                id='password1' 
+                name='password1' 
+                placeholder='Enter password'/>
+        </div>
+    <br/>
+        <div class='mx-auto col-10 col-md-8 col-lg-6'>
+            <input 
+                type='password' 
+                class='form-control' 
+                id='password2' 
+                name='password2' 
+                placeholder='Confirm password'/>
+        </div>
+    <br/>
+    <p>
+        Email adress must contain @ and must be longer than 3 characters. 
+        First name must contain at least 2 chracters. 
+        Password must contain at least 7 characters.
+    </p>
+        <button id='submit' type='submit' class='btn btn-dark'>Submit</button>
+</form>
 {% endblock %}
