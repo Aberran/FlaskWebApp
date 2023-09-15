@@ -47,8 +47,11 @@
           aria-labelledby="offcanvasNavbarLabel"
         >
           <div class="offcanvas-header text-dark border-bottom border-dark">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><a class="navbar-brand fs-4" href="/"
-              >vladimir<b class="h2">Sabik.</b></a></h5>
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+              <a class="navbar-brand fs-4" href="/"
+                >vladimir<b class="h2">Sabik.</b></a
+              >
+            </h5>
             <button
               type="button"
               class="btn-close"
@@ -64,14 +67,19 @@
               <li class="nav-item mx-2">
                 <a class="nav-link" href="/home" id="'Contact">Write me!</a>
               </li>
-              <li class="nav-item mx-2">
-                <a class="nav-link" href="/logout" id="'logout">Log out</a>
-              </li>
             </ul>
             <!-- Login/Sign Up-->
             <div
               class="d-flex justify-content-center align-items-center flex-column flex-lg-row gap-3"
             >
+              {% if user.is_authenticated %}
+              <a href="/home" class="nav-item nav-link" id="'home"
+                >Home</a
+              >
+              <a href="/logout" class="nav-item nav-link" id="'logout"
+                >Log out</a
+              >
+              {% else %}
               <a href="/login" class="nav-item nav-link" id="'login">Login</a>
               <a
                 href="/sign-up"
@@ -79,6 +87,7 @@
                 id="'signUp"
                 >Sign Up</a
               >
+              {% endif %}
             </div>
           </div>
         </div>
