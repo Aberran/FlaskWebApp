@@ -6,7 +6,7 @@ import json
 
 views = Blueprint('views', __name__)
 
-@views.route('/', methods=['GET', 'POST'])
+@views.route('/home', methods=['GET', 'POST'])
 @login_required
 def home():
     if request.method == 'POST':
@@ -35,4 +35,3 @@ def delete_note():
             db.session.commit()
     
     return jsonify({})
-
