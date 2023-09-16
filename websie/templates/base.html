@@ -25,7 +25,7 @@
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
-  <body class="vh-100 overflow-hidden" data-bs-theme="light">
+  <body class="vh-100 overflow-hidden d-none">
     <nav class="navbar bg-light navbar-expand-lg navbar-light bg-transparent">
       <div class="container">
         <a class="navbar-brand fs-4" href="/"
@@ -72,11 +72,11 @@
                   <input
                     class="form-check-input"
                     type="checkbox"
-                    role="switch"
-                    id="selector"
-                    onClick="setDarkMode()"
+                    id="themeSwitcher"
                   />
-                  <label class="form-check-label" for="selector">DM</label>
+                  <label class="form-check-label" for="themeSwitcher"
+                    >Switch Theme</label
+                  >
                 </div>
               </li>
             </ul>
@@ -152,32 +152,31 @@
         });
       }
 
-      function setDarkMode() {
-        let bodyElement = document.body;
-        let signupButton = document.querySelector("#signUp")
-        let signupHref = document.querySelector("#sign-up-href")
-        let textAreas = document.querySelector(".form-control")
-        let subButtons = document.querySelector(".btn")
-
-        bodyElement.dataset.bsTheme = bodyElement.dataset.bsTheme == 'light' ? 'dark' : 'light';
+      document.addEventListener('DOMContentLoaded', function() {
+        var themeSwitcher = document.getElementById('themeSwitcher');
+        var bodyElement = document.body;
+    
+        // Check if the theme preference is stored in local storage
+        if(localStorage.getItem('theme') === 'dark') {
+            bodyElement.dataset.bsTheme = 'dark';
+            themeSwitcher.checked = true;
+        }
         
-           // Toggle Bootstrap classes for the navigation bar
-        signupButton.classList.toggle('border-dark');
-        signupButton.classList.toggle('border-light');
+        bodyElement.classList.remove('d-none');
 
-           // Toggle text color
-        signupButton.classList.toggle('text-black');
-        signupButton.classList.toggle('text-white');
-        
-           // links
-        signupHref.classList.toggle('link-dark');
-        signupHref.classList.toggle('link-light');
-
-          // submit buttons  
-        subButtons.classList.toggle('btn-dark');
-        subButtons.classList.toggle('border-light');
-
-      }
+        // Add an event listener to the theme switcher checkbox
+        themeSwitcher.addEventListener('change', function() {
+            if(this.checked) {
+                bodyElement.dataset.bsTheme = 'dark';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                bodyElement.dataset.bsTheme = 'light';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    });
+    
+      
     </script>
     {% endblock %}
   </body>

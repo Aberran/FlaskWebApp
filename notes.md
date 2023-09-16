@@ -59,16 +59,51 @@
       crossorigin="anonymous"
     ></script>
 
-
     function setDarkMode() {
-        let isDark = document.body.classList.toggle('darkmode');
+        let bodyElement = document.body;
+        let signupButton = document.querySelector("#signUp");
+        let signupHref = document.querySelector("#sign-up-href");
+        let textAreas = document.querySelector(".form-control");
+        let subButtons = document.querySelector(".btn");
 
-        if (isDark) {
-          setDarkMode.checked = true;
-          localStorage.setItem('theme', 'dark');
-          document.getElementById('selector').setAttribute('checked', 'checked');
-        } else {
-          setDarkMode.checked = true;
-          localStorage.removeItem('theme', 'dark');
+        const currentTheme = (bodyElement.dataset.bsTheme =
+          bodyElement.dataset.bsTheme == "light" ? "dark" : "light");
+        localStorage.setItem("theme", currentTheme);
+        console.log(currentTheme);
+
+        // Toggle Bootstrap classes for the navigation bar
+        signupButton.classList.toggle("border-dark");
+        signupButton.classList.toggle("border-light");
+
+        // Toggle text color
+        signupButton.classList.toggle("text-black");
+        signupButton.classList.toggle("text-white");
+
+        // links
+        signupHref.classList.toggle("link-dark");
+        signupHref.classList.toggle("link-light");
+
+        // submit buttons
+        subButtons.classList.toggle("btn-dark");
+        subButtons.classList.toggle("border-light");
+      }
+
+      function checkTheme() {
+        const currentTheme = localStorage.getItem("theme");
+        if (currentTheme) {
+          let bodyElement = document.body;
+          bodyElement.dataset.bsTheme = currentTheme;
+          let checkbox = document.getElementById("selector");
+          // Apply styles based on the theme
+          if (currentTheme == "dark") {
+            checkbox.checked = true;
+            // Apply dark mode styles
+            // ...
+          } else {
+            checkbox.checked = false;
+            // Apply light mode styles
+            // ...
+          }
         }
       }
+      checkTheme();
