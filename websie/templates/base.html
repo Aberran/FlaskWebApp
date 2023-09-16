@@ -25,7 +25,7 @@
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
-  <body class="vh-100 overflow-hidden">
+  <body class="vh-100 overflow-hidden" data-bs-theme="light">
     <nav class="navbar bg-light navbar-expand-lg navbar-light bg-transparent">
       <div class="container">
         <a class="navbar-brand fs-4" href="/"
@@ -67,6 +67,18 @@
               <li class="nav-item mx-2">
                 <a class="nav-link" href="/home" id="'Contact">Write me!</a>
               </li>
+              <li class="nav-item mx-2">
+                <div class="form-check form-switch">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    role="switch"
+                    id="selector"
+                    onClick="setDarkMode()"
+                  />
+                  <label class="form-check-label" for="selector">DM</label>
+                </div>
+              </li>
             </ul>
             <!-- Login/Sign Up-->
             <div
@@ -78,11 +90,11 @@
                 >Log out</a
               >
               {% else %}
-              <a href="/login" class="nav-item nav-link" id="'login">Login</a>
+              <a href="/login" class="nav-item nav-link" id="'login">Log in</a>
               <a
                 href="/sign-up"
                 class="text-black text-decoration-none px-3 py-1 rounded-2 border border-dark"
-                id="'signUp"
+                id="signUp"
                 >Sign Up</a
               >
               {% endif %}
@@ -138,6 +150,33 @@
         }).then((_res) => {
           window.location.href = "/home";
         });
+      }
+
+      function setDarkMode() {
+        let bodyElement = document.body;
+        let signupButton = document.querySelector("#signUp")
+        let signupHref = document.querySelector("#sign-up-href")
+        let textAreas = document.querySelector(".form-control")
+        let subButtons = document.querySelector(".btn")
+
+        bodyElement.dataset.bsTheme = bodyElement.dataset.bsTheme == 'light' ? 'dark' : 'light';
+        
+           // Toggle Bootstrap classes for the navigation bar
+        signupButton.classList.toggle('border-dark');
+        signupButton.classList.toggle('border-light');
+
+           // Toggle text color
+        signupButton.classList.toggle('text-black');
+        signupButton.classList.toggle('text-white');
+        
+           // links
+        signupHref.classList.toggle('link-dark');
+        signupHref.classList.toggle('link-light');
+
+          // submit buttons  
+        subButtons.classList.toggle('btn-dark');
+        subButtons.classList.toggle('border-light');
+
       }
     </script>
     {% endblock %}

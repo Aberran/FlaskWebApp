@@ -58,3 +58,17 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+
+
+    function setDarkMode() {
+        let isDark = document.body.classList.toggle('darkmode');
+
+        if (isDark) {
+          setDarkMode.checked = true;
+          localStorage.setItem('theme', 'dark');
+          document.getElementById('selector').setAttribute('checked', 'checked');
+        } else {
+          setDarkMode.checked = true;
+          localStorage.removeItem('theme', 'dark');
+        }
+      }
