@@ -152,31 +152,50 @@
         });
       }
 
-      document.addEventListener('DOMContentLoaded', function() {
-        var themeSwitcher = document.getElementById('themeSwitcher');
-        var bodyElement = document.body;
-    
+      document.addEventListener("DOMContentLoaded", function () {
+        let themeSwitcher = document.getElementById("themeSwitcher");
+        let bodyElement = document.body;
+        let signupButton = document.querySelector("#signUp");
+        let signupHref = document.querySelector("#sign-up-href");
+        let subButtons = document.querySelector(".btn");
+        let textAreas = document.querySelector(".form-control");
+
         // Check if the theme preference is stored in local storage
-        if(localStorage.getItem('theme') === 'dark') {
-            bodyElement.dataset.bsTheme = 'dark';
-            themeSwitcher.checked = true;
+        if (localStorage.getItem("theme") === "dark") {
+          bodyElement.dataset.bsTheme = "dark";
+          themeSwitcher.checked = true;
+          
         }
-        
-        bodyElement.classList.remove('d-none');
+
+        bodyElement.classList.remove("d-none");
 
         // Add an event listener to the theme switcher checkbox
-        themeSwitcher.addEventListener('change', function() {
-            if(this.checked) {
-                bodyElement.dataset.bsTheme = 'dark';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                bodyElement.dataset.bsTheme = 'light';
-                localStorage.setItem('theme', 'light');
-            }
+        themeSwitcher.addEventListener("change", function () {
+          if (this.checked) {
+            bodyElement.dataset.bsTheme = "dark";
+            localStorage.setItem("theme", "dark");
+          } else {
+            bodyElement.dataset.bsTheme = "light";
+            localStorage.setItem("theme", "light");
+          }
+          updateTheme();
         });
-    });
-    
-      
+
+        function updateTheme() {
+          let currentTheme = bodyElement.dataset.bsTheme;
+          if (currentTheme === "dark") {
+            signupButton.classList.add("border-white", "text-white");
+            signupHref.classList.add("link-body-emphasis");
+            subButtons.classList.add("btn-light", "border-white");
+          } else {
+            signupButton.classList.remove("border-white", "text-white");
+            signupHref.classList.remove("link-body-emphasis");
+            subButtons.classList.remove("btn-light", "border-white");
+          }
+        }
+
+        updateTheme(); // Call the function on page load
+      });
     </script>
     {% endblock %}
   </body>
