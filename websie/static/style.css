@@ -1,8 +1,7 @@
 /* Custom CSS to apply Roboto font to all elements */
 body {
     font-family: 'Courier Prime', monospace;
-    /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
-    /* background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); */
+    /* background: linear-gradient(45deg, #ffc107 0%, #ffc107 33.33%, transparent 33.33%, transparent 66.66%, #ffc107 66.66%, #ffc107 100%); */
     /* height: 100vh; */
 }
 
@@ -26,5 +25,23 @@ body {
     }
 }
 
+/* Changing deatails in theme */
 
+.form-control:focus {
+    border-color: #ffc107a2; /* Bootstrap warning color */
+    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25); /* Bootstrap warning color with opacity */
+}
+
+.form-check-input[type="checkbox"]:not(.switch-input) {
+    border-color: black; /* Bootstrap warning color */
+}
+/* Change the focus ring color for switchers (checkboxes and radio buttons) */
+.form-check-input:focus {
+    box-shadow: none;
+}
+
+/* Change the checkbox icon color to white */
+.form-check-input[type="checkbox"]:not(.switch-input):checked {
+    background-color: #ffc107; /* Bootstrap warning color */
+}
 

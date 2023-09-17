@@ -75,7 +75,7 @@
                     id="themeSwitcher"
                   />
                   <label class="form-check-label" for="themeSwitcher"
-                    >Switch Theme</label
+                    >Dark Mode</label
                   >
                 </div>
               </li>
@@ -185,12 +185,8 @@
           let currentTheme = bodyElement.dataset.bsTheme;
           if (currentTheme === "dark") {
             signupButton.classList.add("border-white", "text-white");
-            signupHref.classList.add("link-body-emphasis");
-            subButtons.classList.add("btn-light", "border-white");
           } else {
             signupButton.classList.remove("border-white", "text-white");
-            signupHref.classList.remove("link-body-emphasis");
-            subButtons.classList.remove("btn-light", "border-white");
           }
         }
 
