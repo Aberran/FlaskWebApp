@@ -85,6 +85,7 @@
               class="d-flex justify-content-center align-items-center flex-column flex-lg-row gap-3"
             >
               {% if user.is_authenticated %}
+              <div id='signUp'></div>
               <a href="/home" class="nav-item nav-link" id="'home">Home</a>
               <a href="/logout" class="nav-item nav-link" id="'logout"
                 >Log out</a
@@ -156,15 +157,11 @@
         let themeSwitcher = document.getElementById("themeSwitcher");
         let bodyElement = document.body;
         let signupButton = document.querySelector("#signUp");
-        let signupHref = document.querySelector("#sign-up-href");
-        let subButtons = document.querySelector(".btn");
-        let textAreas = document.querySelector(".form-control");
 
         // Check if the theme preference is stored in local storage
         if (localStorage.getItem("theme") === "dark") {
           bodyElement.dataset.bsTheme = "dark";
           themeSwitcher.checked = true;
-          
         }
 
         bodyElement.classList.remove("d-none");

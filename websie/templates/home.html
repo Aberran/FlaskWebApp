@@ -7,29 +7,29 @@
     <h1>Hello {{ user_name }}, here you can create your personal notes.</h1>
     <br/>
     <p>
-        “One of the critical skills in creative work is note-taking.” — <b>Lauri Jarvilento</b>
+        “One of the critical skills in creative work is note-taking.” — <b><a href='https://www.laurijarvilehto.com/' class="link-danger lauri-link" target="_blank" id="sign-up-href">Lauri Jarvilento</a></b>
     </p>
     <br/>
 </div>
     <ul class='list-group list-group-flush' id='notes'>
         {% for note in user.notes %}
-        <li class='list-group-item'>
-            {{ note.data }}
-            <button type='button' class='close' onClick='deleteNote({{ note.id }})'>
-                <span aria-hidden='true'>&times;</span>
+        <li class='list-group-item d-flex justify-content-between'>
+            {{ note.id }}. {{ note.data }}
+            <button type='button' class='btn-close' aria-label="Close" onClick='deleteNote({{ note.id }})'>
             </button>
         </li>
         {% endfor %}
     </ul>
+    <br/>
     <form method='POST'>
         <div class="form-outline mb-4">
             <textarea name='note' id='note' class='form-control'></textarea>
         </div>
         <br/>
         <div align='center'>
-            <button type='submit' class='btn btn-dark'>Add note</button>
+            <button type='submit' class='btn btn-danger'>Add note</button>
         <div>
-    </from>
+    </form>
 
 {% endblock %}
 

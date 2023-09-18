@@ -28,8 +28,8 @@ body {
 /* Changing deatails in theme */
 
 .form-control:focus {
-    border-color: #ffc107a2; /* Bootstrap warning color */
-    box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25); /* Bootstrap warning color with opacity */
+    border-color: #dc3545; /* Bootstrap warning color */
+    box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); /* Bootstrap warning color with opacity */
 }
 
 .form-check-input[type="checkbox"]:not(.switch-input) {
@@ -42,6 +42,9 @@ body {
 
 /* Change the checkbox icon color to white */
 .form-check-input[type="checkbox"]:not(.switch-input):checked {
-    background-color: #ffc107; /* Bootstrap warning color */
+    background-color: #dc3545; /* Bootstrap warning color */
 }
 
+.lauri-link {
+    text-decoration: none;
+}
