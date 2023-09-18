@@ -45,6 +45,20 @@ body {
     background-color: #dc3545; /* Bootstrap warning color */
 }
 
-.lauri-link {
-    text-decoration: none;
-}
+.pulsate:hover {
+    animation: pulsate 2s infinite;
+    }
+
+        
+    @keyframes pulsate {
+        0% {
+          text-shadow: 0 0 5px rgba(255, 255, 255 ,1);
+        }
+        50% {
+          text-shadow: 0 0 15px rgba(255, 255, 255 ,1);
+         }
+        100% {
+          text-shadow: 0 0 5px rgba(255, 255, 255 ,1);
+        }
+      }
+    
