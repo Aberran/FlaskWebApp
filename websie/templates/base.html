@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,7 +26,7 @@
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
-  <body class="vh-100 overflow-hidden d-none">
+  <body class="vh-100 d-none">
     <nav class="navbar bg-light navbar-expand-lg navbar-light bg-transparent">
       <div class="container">
         <a class="navbar-brand fs-4 pulsing-link pulsate" href="/"
@@ -65,7 +66,17 @@
               class="navbar-nav justify-content-start align-items-center flex-grow-1 pe-3"
             >
               <li class="nav-item mx-2">
-                <a class="nav-link" href="/home" id="'Contact">Write me!</a>
+                <a class="nav-link" href="mailto:anaberrantis@gmail.com?subject=Msg%20from%20web" id="'Contact">Write me!</a>
+              </li>
+              <li class="nav-item">
+                <a href="https://github.com/Aberran" target="_blank" id="media-icons-gitHub" class="nav-link text-light">
+                  <i class="bi bi-github"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.linkedin.com/in/vladim%C3%ADr-%C5%A1ab%C3%ADk-787083267/" target="_blank" id="media-icons-linkedIn" class="nav-link text-light">
+                  <i class="bi bi-linkedin"></i>
+                </a>
               </li>
               <li class="nav-item mx-2">
                 <div class="form-check form-switch">
@@ -157,6 +168,8 @@
         let themeSwitcher = document.getElementById("themeSwitcher");
         let bodyElement = document.body;
         let signupButton = document.querySelector("#signUp");
+        let mediaIconsGitHub = document.querySelector('#media-icons-gitHub');
+        let mediaIconsLinkedIn = document.querySelector('#media-icons-linkedIn');
 
         // Check if the theme preference is stored in local storage
         if (localStorage.getItem("theme") === "light") {
@@ -182,8 +195,12 @@
           let currentTheme = bodyElement.dataset.bsTheme;
           if (currentTheme === "light") {
             signupButton.classList.add("text-dark", "border-black");
+            mediaIconsGitHub.classList.add("text-dark");
+            mediaIconsLinkedIn.classList.add("text-dark");
           } else {
             signupButton.classList.remove("text-dark", "border-black");
+            mediaIconsGitHub.classList.remove("text-dark");
+            mediaIconsLinkedIn.classList.remove("text-dark");
           }
         }
 

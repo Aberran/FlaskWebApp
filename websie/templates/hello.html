@@ -2,6 +2,11 @@
 {% block title %}Hello{% endblock %}
 {% block content %} 
 
+<div class="container d-flex  align-items-center justify-content-center flex-column vh-100">
 <h1 class="container d-flex justify-content-center">Hello world !</h1>
-
+    <p class="hello-text "> Welcome to my first web application built with the Flask framework. My application offers the possibility to create an account through the <b><a href='/sign-up' class="link-danger" id="sign-up-href">'Sign up'</a></b> button. Feel free to use a fictional email address for account creation, but I recommend remembering it for potential future use. I'm continuously working on expanding the functionality of the application. Currently, it primarily serves as a project where I test my abilities in creating web applications and working with databases. </p>
+    <h3><b>Thank you for being a part of this journey!</b></h3>
+    <img src="{{ url_for('static', filename='images/profileWhiteLine.png') }}" alt="Profile Picture" class="profile-picture w-50">
+    <p>Source code: <a href='https://github.com/Aberran/FlaskWebApp' class="link-danger" target="_blank" >https://github.com/Aberran/FlaskWebApp</a></p>
+</div>
 {% endblock %}
