@@ -14,7 +14,7 @@
     <ul class='list-group list-group-flush' id='notes'>
         {% for note in user.notes %}
         <li class='list-group-item d-flex justify-content-between'>
-            {{ note.id }}. {{ note.data }}
+            {{ loop.index }}. {{ note.data }}
             <button type='button' class='btn-close' aria-label="Close" onClick='deleteNote({{ note.id }})'>
             </button>
         </li>
