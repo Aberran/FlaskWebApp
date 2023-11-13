@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Searched{% endblock %}
+{% block content %}
+
+<div align='center'>
+    <br/><br/><br/>
+    {{ search_result }}
+    <h1>Hello {{ user_name }}, here you can create your personal notes.</h1>
+    <br/>
+    <p>
+        "The secret of getting ahead is getting started." — <b>Mark Twain</b>
+    </p>
+    <br/>
+</div>
+    <ul class='list-group list-group-flush' id='notes'>
+        {% for note in searched_results %}
+        <li class='list-group-item d-flex justify-content-between'>
+            {{ loop.index }}. {{ note.date }} UTC | {{ note.data }}
+            <button type='button' class='btn-close' aria-label="Close" onClick='deleteNote({{ note.id }})'>
+            </button>
+        </li>
+        {% endfor %}
+    </ul>
+    <br/>
+    <form method='POST'>
+        <br/>
+        <div align='center'>
+            <a class="btn btn-danger" href="/home" role="button">Back To Home</a>
+        <div>
+    </form>
+
+{% endblock %}

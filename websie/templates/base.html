@@ -19,17 +19,16 @@
       rel="stylesheet"
     />
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
 
     <title>{% block title %}Home{% endblock %}</title>
   </head>
   <body class="vh-100 d-none">
     <nav class="navbar bg-light navbar-expand-lg navbar-light bg-transparent">
       <div class="container">
-        <a class="navbar-brand fs-4 pulsing-link pulsate" href="/"
+        <a class="navbar-brand fs-4 pulsate" href="/"
           >vladimir<b class="h2">Sabik.</b></a
         >
         <button
@@ -102,6 +101,10 @@
             >
               {% if user.is_authenticated %}
               <div id='signUp'></div>
+              <form method= "post" class="d-flex" action="/searched">
+                <input class="form-control" type="search" name="searched" placeholder="Search" aria-label="Search">
+                <button class="btn btn btn-danger me-1" style="margin-left: 5px;" type="submit">Search</button>
+              </form>
               <a href="/home" class="nav-item nav-link" id="'home">Home</a>
               <a href="/logout" class="nav-item nav-link" id="'logout"
                 >Log out</a
@@ -158,60 +161,5 @@
       crossorigin="anonymous"
     ></script>
 
-    {% block javascript %}
-    <script type="text/javascript">
-      function deleteNote(noteId) {
-        fetch("/delete-note", {
-          method: "POST",
-          body: JSON.stringify({ noteId: noteId }),
-        }).then((_res) => {
-          window.location.href = "/home";
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", function () {
-        let themeSwitcher = document.getElementById("themeSwitcher");
-        let bodyElement = document.body;
-        let signupButton = document.querySelector("#signUp");
-        let mediaIconsGitHub = document.querySelector('#media-icons-gitHub');
-        let mediaIconsLinkedIn = document.querySelector('#media-icons-linkedIn');
-
-        // Check if the theme preference is stored in local storage
-        if (localStorage.getItem("theme") === "light") {
-          bodyElement.dataset.bsTheme = "light";
-          themeSwitcher.checked = true;
-        }
-
-        bodyElement.classList.remove("d-none");
-
-        // Add an event listener to the theme switcher checkbox
-        themeSwitcher.addEventListener("change", function () {
-          if (this.checked) {
-            bodyElement.dataset.bsTheme = "light";
-            localStorage.setItem("theme", "light");
-          } else {
-            bodyElement.dataset.bsTheme = "dark";
-            localStorage.setItem("theme", "dark");
-          }
-          updateTheme();
-        });
-
-        function updateTheme() {
-          let currentTheme = bodyElement.dataset.bsTheme;
-          if (currentTheme === "light") {
-            signupButton.classList.add("text-dark", "border-black");
-            mediaIconsGitHub.classList.add("text-dark");
-            mediaIconsLinkedIn.classList.add("text-dark");
-          } else {
-            signupButton.classList.remove("text-dark", "border-black");
-            mediaIconsGitHub.classList.remove("text-dark");
-            mediaIconsLinkedIn.classList.remove("text-dark");
-          }
-        }
-
-        updateTheme(); // Call the function on page load
-      });
-    </script>
-    {% endblock %}
   </body>
 </html>
