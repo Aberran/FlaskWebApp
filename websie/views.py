@@ -41,11 +41,12 @@ def delete_note():
 @login_required
 def search():
     
-    searched_result = None
+    searched_results = None
     
     if request.method == 'POST': 
-       searched = request.form.get('searched')
-       searched_results = Note.query.filter(Note.data.like(f'%{searched}%')).all()
-       print(searched_results)
+        searched = request.form.get('searched')
+        if searched != '':
+            searched_results = Note.query.filter(Note.data.like(f'%{searched}%')).all()
+            print(searched_results)
             
     return render_template('searched.html', user=current_user, user_name=current_user.first_name, searched_results=searched_results)

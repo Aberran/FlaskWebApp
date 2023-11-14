@@ -13,6 +13,7 @@
     <br/>
 </div>
     <ul class='list-group list-group-flush' id='notes'>
+        {% if searched_results %}
         {% for note in searched_results %}
         <li class='list-group-item d-flex justify-content-between'>
             {{ loop.index }}. {{ note.date }} UTC | {{ note.data }}
@@ -20,6 +21,9 @@
             </button>
         </li>
         {% endfor %}
+        {% else %}
+        <h1 align="center">No results found :/</h1>
+        {% endif %}
     </ul>
     <br/>
     <form method='POST'>
