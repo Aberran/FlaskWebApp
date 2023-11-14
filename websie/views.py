@@ -46,6 +46,7 @@ def search():
     if request.method == 'POST': 
         searched = request.form.get('searched')
         if searched != '':
-            searched_results = Note.query.filter(Note.data.like(f'%{searched}%')).all()
+            searched_results = Note.query.filter(Note.data.like(f'%{searched}%'),Note.user_id == current_user.id).all()
+            print(searched_results)
             
     return render_template('searched.html', user=current_user, user_name=current_user.first_name, searched_results=searched_results)
